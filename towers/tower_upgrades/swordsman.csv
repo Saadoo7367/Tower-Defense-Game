@@ -1,0 +1,7 @@
+level,range,damage,attack_speed,upgrade_cost,image,projectile
+0,70,3,35,250,cool_sword_tower.png,Sword
+1,70,5,35,100,cool_sword_tower_lvl1.png,Sword
+2,70,7,35,150,cool_sword_tower_lvl2.png,Sword
+3,95,15,50,300,cool_sword_tower_lvl3.png,Sword
+4,95,8,25,400,cool_sword_tower_lvl4.png,Sword
+5,120,12,15,500,cool_sword_tower_lvl5.png,Sword

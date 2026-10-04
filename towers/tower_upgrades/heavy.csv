@@ -1,0 +1,7 @@
+level,range,damage,attack_speed,upgrade_cost,image,projectile
+0,300,75,550,850,cool_sniper_tower.png,Bullet
+1,300,75,450,400,cool_sniper_tower_lvl1.png,Bullet
+2,300,100,400,600,cool_sniper_tower_lvl2.png,Bullet
+3,300,40,100,1200,cool_sniper_tower_lvl3.png,Bullet
+4,300,60,100,2000,cool_sniper_tower_lvl4.png,Bullet
+5,340,1000,700,3000,cool_sniper_tower_lvl5.png,Bullet

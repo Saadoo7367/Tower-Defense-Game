@@ -1,0 +1,7 @@
+level,range,damage,attack_speed,upgrade_cost,image,projectile
+0,100,8,100,300,cool_tower.png,Turd
+1,150,10,80,100,cool_tower_lvl1.png,Turd
+2,150,12,80,125,cool_tower_lvl2.png,Turd
+3,150,14,80,175,cool_tower_lvl3.png,Turd
+4,170,15,70,200,cool_tower_lvl4.png,Turd
+5,220,17,60,250,cool_tower_lvl5.png,Turd

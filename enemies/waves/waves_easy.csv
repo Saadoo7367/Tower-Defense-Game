@@ -1,0 +1,11 @@
+wave_num,normal_enemy_count,normal_time_btwn,fast_enemy_count,fast_time_btwn,tank_enemy_count,tank_time_btwn,zombie_enemy_count,zombie_time_btwn,boss_enemy_count
+1,3,50,0,0,0,0,0,0,0
+2,5,40,0,0,0,0,0,0,0
+3,8,30,0,0,0,0,0,0,0
+4,6,40,2,85,0,0,0,0,0
+5,10,40,4,65,0,0,0,0,0
+6,12,10,4,40,2,100,0,0,0
+7,4,20,10,30,3,70,0,0,0
+8,12,10,10,20,4,60,0,0,0
+9,10,8,11,15,4,40,0,0,0
+10,10,5,13,10,4,20,0,00,1

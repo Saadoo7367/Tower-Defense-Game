@@ -1,0 +1,25 @@
+-- Place a tower -- DONE
+    -- Map
+        -- Restricted placement areas --  DONE
+        -- map image -- DONE
+        -- path -- DONE
+    -- tower
+        -- tower image -- DONE
+        -- can place down -- DONE
+        -- can shoot -- DONE
+--Enemies -- DONE
+    -- Enemy image -- DONE
+    -- Can Kill you -- DONE
+-- Game
+    -- Main menu
+    -- Health system -- DONE    
+    -- Wave Structure -- DONE
+    -- End game screen -- DONE
+
+Refactor main to not use enemy types
+HP bar
+Next tower upgrade image
+Bug with projectiles targeting exit
+Buttons to place towers
+Hovering placement
+Summon whatever enemy you want

@@ -1,0 +1,7 @@
+level,range,damage,attack_speed,upgrade_cost,image,projectile
+0,150,6,150,450,cool_bomber_tower.png,Grenade
+1,180,10,200,200,cool_bomber_tower_lvl1.png,Grenade
+2,200,10,200,250,cool_bomber_tower_lvl2.png,Grenade
+3,200,12,180,350,cool_bomber_tower_lvl3.png,Grenade
+4,200,15,140,500,cool_bomber_tower_lvl4.png,Grenade
+5,220,20,120,550,cool_bomber_tower_lvl5.png,Grenade
