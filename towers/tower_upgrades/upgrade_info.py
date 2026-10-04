@@ -58,7 +58,7 @@ class Upgrade_Info:
                     try:
                         pic = pygame.image.load(pic_location) 
                     except Exception:
-                        print("yo where he at?")
+                        print(f"yo where he at? U know? {tower} {image}")
                         pygame.quit()
                         
                     pic = pygame.transform.scale(pic, (75, 75))

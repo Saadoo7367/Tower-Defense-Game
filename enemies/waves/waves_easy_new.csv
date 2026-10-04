@@ -1,5 +1,7 @@
 wave_num,chunk,total_chunks,enemy_name,enemy_count,time_btwn
 1,1,1,NORMAL,3,50
+1,1,1,NORMAL,3,50
 2,1,2,SPEEDY,5,40
 2,2,2,NORMAL,2,20
 3,1,1,TANK,1,100
+4,1,1,TANK,1,100

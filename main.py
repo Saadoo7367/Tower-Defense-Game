@@ -8,7 +8,7 @@ from player_ui import PlayerUI
 from enemies.waves.wave_structure import Wave_Structure
 from towers.tower_upgrade_ui import TowerUpgradeUI
 from towers.tower_upgrades.upgrade_info import Upgrade_Info
-
+from references.enemy_stats import enemy_type_map
 # initializing imported module
 
 def reset_game():
@@ -24,7 +24,7 @@ def reset_game():
     display_upgrade = False
     base_hp = ui.max_health
     curr_wave_bonus = orig_wave_bonus
-    wave_bonus_increment = 60
+    wave_bonus_increment = 120
     print("Game reset! Good luck on the next run!")
 
 pygame.init()
@@ -75,7 +75,7 @@ boss_died = False
 
 orig_wave_bonus = 0
 curr_wave_bonus = orig_wave_bonus
-wave_bonus_increment = 60
+wave_bonus_increment = 120
 previous_wave = 0
 
 ts = Tower_Summoner(towers, screen)
@@ -94,13 +94,13 @@ while running:
             money += curr_wave_bonus
             print(f"Wave {wave} started! You earned ${curr_wave_bonus} for completing the previous wave.")
             curr_wave_bonus += wave_bonus_increment
-            wave_bonus_increment += 10
+            wave_bonus_increment = int(wave_bonus_increment * 1.1)
 
         if is_alive == True:
-            """ CHANGED - added returns """
             spawned_enemy, counter = ws.attempt_spawn(counter)
             if spawned_enemy:
-                enemies.append(spawned_enemy)
+                enemies.append(spawned_enemy)  # For now, just spawn normal enemies
+       
 
         for enemy in enemies:
             if enemy.move():

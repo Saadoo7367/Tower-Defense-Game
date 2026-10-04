@@ -1,5 +1,17 @@
 import pygame
-from references.enemy_stats import enemy_type_map
+from enemies.reg_enemy import Reg_Enemy
+from enemies.fast_enemy import Fast_Enemy
+from enemies.tank_enemy import Tank_Enemy
+from enemies.zombie_enemy import Zombie_Enemy
+from enemies.boss_enemy import Boss_Enemy
+
+enemy_type_map = {
+    "NORMAL": Reg_Enemy,
+    "SPEEDY": Fast_Enemy,
+    "TANK": Tank_Enemy,
+    "ZOMBIE": Zombie_Enemy,
+    "BOSS": Boss_Enemy
+}
 
 class Wave_Structure():
     def __init__(self, screen):
@@ -24,7 +36,11 @@ class Wave_Structure():
         if self.wave <= self.last_wave:
             self.enemy_reserves = self.enemy_groups[self.wave - 1][self.current_chunk]["enemy_count"]
             self.enemy_btwn = self.enemy_groups[self.wave - 1][self.current_chunk]["time_between"]
-        
+        else:
+            self.enemy_reserves = 0
+            self.enemy_btwn = 500
+            
+
     def attempt_spawn(self, counter):
         spawned_enemy = None #setting variable to none so that the code wont be pissed
 
@@ -32,7 +48,8 @@ class Wave_Structure():
         if counter <= 0:
             # Spawn an enemy
             if self.enemy_reserves > 0:
-                spawned_enemy = self.enemy_groups[self.wave - 1][self.current_chunk]["enemy_type"] 
+                #spawned_enemy = self.enemy_groups[self.wave - 1][self.current_chunk]["enemy_type"] 
+                spawned_enemy = enemy_type_map["NORMAL"] #for now, just spawn normal enemies
                 counter = self.enemy_btwn
                 self.enemy_reserves -= 1
             else:  # or try to advance to next enemy chunk
@@ -44,8 +61,7 @@ class Wave_Structure():
                     self.current_chunk = 1
                     self.wave += 1
             
-            # Handle next wave
-            
+            # Handle next wave            
             if len(self.enemies) == 0:
                 if self.wave-1 > self.last_wave:
                     return(None, 0)

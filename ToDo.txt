@@ -23,3 +23,9 @@ Bug with projectiles targeting exit
 Buttons to place towers
 Hovering placement
 Summon whatever enemy you want
+
+
+--BUGSSS
+ enemies aren't summoning (who knew man)
+ pressing play w/o selectifing difficulty crashes game
+ towers appear for a frame w/o money
