@@ -173,9 +173,12 @@ while running:
             if not started:
                 #----------------------------------------  Play  Button  ----------------------------------------#
                 if ui.clicked_play_button():
-                    started = True
-                    reset_game()  # Reset game state when play button is clicked
-                    ws.read(ui.difficulty)  # Load wave info based on selected difficulty
+                    if ui.difficulty is None:
+                        print("Pick a difficulty before pressing Play.")
+                    else:
+                        started = True
+                        reset_game()  # Reset game state when play button is clicked
+                        ws.read(ui.difficulty)  # Load wave info based on selected difficulty
                 #---------------------------------------- Diff Selection ----------------------------------------#
                 difficulty = ui.clicked_difficulty()
                 if difficulty:
