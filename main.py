@@ -100,7 +100,7 @@ while running:
             """ CHANGED - added returns """
             spawned_enemy, counter = ws.attempt_spawn(counter)
             if spawned_enemy:
-                enemies.append(spawned_enemy)
+                enemies.append(spawned_enemy(screen))
 
         for enemy in enemies:
             if enemy.move():
