@@ -5,13 +5,7 @@ from enemies.tank_enemy import Tank_Enemy
 from enemies.zombie_enemy import Zombie_Enemy
 from enemies.boss_enemy import Boss_Enemy
 
-enemy_type_map = {
-    "NORMAL": Reg_Enemy,
-    "SPEEDY": Fast_Enemy,
-    "TANK": Tank_Enemy,
-    "ZOMBIE": Zombie_Enemy,
-    "BOSS": Boss_Enemy
-}
+
 
 class Wave_Structure():
     def __init__(self, screen):
@@ -23,7 +17,14 @@ class Wave_Structure():
         self.enemies = []
         self.enemy_reserves = 0
         self.enemy_btwn = 0
-        
+        self.enemy_type_map = {
+            "NORMAL": Reg_Enemy(self.screen),
+            "SPEEDY": Fast_Enemy(self.screen),
+            "TANK": Tank_Enemy(self.screen),
+            "ZOMBIE": Zombie_Enemy(self.screen),
+            "BOSS": Boss_Enemy(self.screen)
+        }
+
     def current_wave_display(self):
         text_surface = pygame.font.Font(None, 36).render(f"wave:{self.wave}", True, (255, 255, 255))
         self.screen.blit(text_surface, (10, 50))
@@ -49,7 +50,7 @@ class Wave_Structure():
             # Spawn an enemy
             if self.enemy_reserves > 0:
                 #spawned_enemy = self.enemy_groups[self.wave - 1][self.current_chunk]["enemy_type"] 
-                spawned_enemy = enemy_type_map["NORMAL"] #for now, just spawn normal enemies
+                spawned_enemy = self.enemy_type_map["NORMAL"] #for now, just spawn normal enemies
                 counter = self.enemy_btwn
                 self.enemy_reserves -= 1
             else:  # or try to advance to next enemy chunk
@@ -66,9 +67,9 @@ class Wave_Structure():
                 if self.wave-1 > self.last_wave:
                     return(None, 0)
                 else:
-                    counter = 500000000000000 #yeha not the best idea but if you bask in glory for longer than this, wtf??
+                    counter = 5
         
-        return (spawned_enemy, counter)
+        return (self.enemy_type_map["NORMAL"], counter)
         
 
     """ ADDED - int conversion """
@@ -85,7 +86,7 @@ class Wave_Structure():
                 wave_num = int(wave_num)
                 chunk = int(chunk)
                 total_chunks = int(total_chunks)
-                enemy_type = enemy_type_map[enemy_type]
+                enemy_type = self.enemy_type_map[enemy_type]
                 enemy_count = int(enemy_count)
                 time_between = int(time_between)
 

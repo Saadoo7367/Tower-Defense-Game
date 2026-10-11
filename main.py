@@ -96,22 +96,23 @@ while running:
             curr_wave_bonus += wave_bonus_increment
             wave_bonus_increment = int(wave_bonus_increment * 1.1)
 
+        #---------------------------------------Eenemy Logic---------------------------------------#
         if is_alive == True:
             spawned_enemy, counter = ws.attempt_spawn(counter)
             if spawned_enemy:
                 enemies.append(spawned_enemy)  # For now, just spawn normal enemies
-       
+                print(f"Spawned enemy:  at wave {wave}. Remaining enemies in chunk: {ws.enemy_reserves}")
 
         for enemy in enemies:
             if enemy.move():
                 damage = enemy.health
                 base_hp = ui.take_damage(damage)
                 money += enemy.get_bounty()
+                enemies.remove(enemy)
 
                 if enemy.get_name() == "Boss" and base_hp > 0:
                     boss_died = True
 
-                enemies.remove(enemy)
                 if base_hp <= 0:
                     max_enemies = 0
                     is_alive = False
@@ -126,6 +127,7 @@ while running:
                 money += enemy.get_bounty()
                 enemies.remove(enemy)   
 
+        #---------------------------------------Tower Firing--------------------------------------#
         for tower in towers:
             if len(tower.find_enemy(enemies)) > 0:
                 enemy_shot = tower.shoot(enemies)
@@ -147,6 +149,7 @@ while running:
                 lvl = last_clicked_tower.get_level()
                 cost = last_clicked_tower.get_cost()
                 print(f"Upgrade cost: {cost}, Player money: {money}, Tower level: {lvl}")
+
                 if money >= cost and lvl < 5:  # Check if player has enough money for upgrade
                     last_clicked_tower.upgrade()
                     money -= cost  # Deduct upgrade cost, adjust as needed  
@@ -187,6 +190,7 @@ while running:
                     new_tower = ts.place_tower(pygame.K_q)
                     if new_tower != None: 
                         cost = new_tower.get_place_cost()
+                        
                         if money >= cost:
                             towers.append(new_tower)
                             money -= new_tower.get_place_cost()
@@ -228,7 +232,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    clock.tick(100)
+    clock.tick(60)
 
     pygame.display.update()
 
