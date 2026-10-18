@@ -101,7 +101,7 @@ while running:
             spawned_enemy, counter = ws.attempt_spawn(counter)
             if spawned_enemy:
                 enemies.append(spawned_enemy)  # For now, just spawn normal enemies
-                print(f"Spawned enemy:  at wave {wave}. Remaining enemies in chunk: {ws.enemy_reserves}")
+                print("summmoned enemy")
 
         for enemy in enemies:
             if enemy.move():
@@ -174,12 +174,12 @@ while running:
                 # Reset game state for a new game   
 
             if not started:
-                #----------------------------------------  Play  Button  ----------------------------------------#
+            #----------------------------------------  Play  Button  ----------------------------------------#
                 if ui.clicked_play_button():
                     started = True
                     reset_game()  # Reset game state when play button is clicked
                     ws.read(ui.difficulty)  # Load wave info based on selected difficulty
-                #---------------------------------------- Diff Selection ----------------------------------------#
+            #---------------------------------------- Diff Selection ----------------------------------------#
                 difficulty = ui.clicked_difficulty()
                 if difficulty:
                     print(f"Difficulty selected: {difficulty}")         
